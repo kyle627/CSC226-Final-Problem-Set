@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4cIttvUGBqPI3VSjDMqScs3xjJtmnqeD+H1CM4RwEAhYZa++w5GAuEldjXLnmvkYjcwq2vU8rCw/giStC6yyBA==",
+  "success": true,
+  "projectFilePath": "E:\\CCC\\CSC-226- Wright\\Kyle Evangelisto Problem Set 2\\Question 3 FSHARP\\Filter\\Filter\\Filter.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kylee\\.nuget\\packages\\fsharp.core\\4.7.0\\fsharp.core.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
