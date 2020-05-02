@@ -4,6 +4,22 @@
 //4-28-2020 1pm- 230pm || Updated to let user choose target word 4/29/2020 11:35pm
 open System
 
+module printformat =
+    let rec format items  = //recursive method to format list output, not required!
+        match items with //functional style match statement
+        | [] -> ()
+        | head::tail -> 
+        printfn "%s" head //prints out the newly formated list
+        format tail //recursively calls itself to print each element!
+
+
+module filter =
+
+    let rec removeWhen items target =
+        let filteredlist = items |> List.filter (fun x -> x <> target) //logic to filter the target word(s) out of the list, required!
+        printformat.format(filteredlist) //function call to format list, not required!
+
+
 [<EntryPoint>]
 let main argv =
     //List is created
@@ -16,21 +32,8 @@ let main argv =
     let target = Console.ReadLine() //required target!
     printf "\n\nList after the target word is removed (and formatted)\n"
 
-    let rec format items  = //recursive method to format list output, not required!
-        match items with //functional style match statement
-        | [] -> ()
-        | head::tail -> 
-        printfn "%s" head //prints out the newly formated list
-        format tail //recursively calls itself to print each element!
-
-    //Required "remove when" subroutine with two parameters (list and target)
-    let rec removeWhen items target =
-        let filteredlist = items |> List.filter (fun x -> x <> target) //logic to filter the target word(s) out of the list, required!
-        format filteredlist //function call to format list, not required!
-        
-    removeWhen fruits target //function call with two parameters, required! 
+    filter.removeWhen fruits target //function call with two parameters, required! 
 
     exit 0 //Program Ends!
 
-    //user defined target words and lsit elements coming when i get motivated again
     
