@@ -12,7 +12,6 @@ import java.util.concurrent.locks.ReentrantLock;
 public class BankAccount
 {
    private double balance;
-   private double newBalance;
    private Lock balanceChangeLock;
 
    /**
@@ -22,7 +21,6 @@ public class BankAccount
    {
       balanceChangeLock = new ReentrantLock();
       balance = 0;
-      newBalance = 0;
    }
 
    /**
@@ -33,9 +31,7 @@ public class BankAccount
       balanceChangeLock.lock();
       try{
          balance += amount;
-
-         newBalance  = balance;
-         System.out.print("Depositing " + amount + " , new balance is " + newBalance + amount + "\n");
+         System.out.print("Depositing " + amount + " , new balance is " + balance + "\n");
       } finally {
          balanceChangeLock.unlock();
       }
@@ -48,16 +44,12 @@ public class BankAccount
    public void withdraw(double amount) {
       balanceChangeLock.lock();
       try{
-         balance += amount;
-         newBalance  = balance;
-         System.out.print("Withdrawing " + amount + ", new balance is " + newBalance + "\n");
+         balance -= amount;
+         System.out.print("Withdrawing " + amount + ", new balance is " + balance + "\n");
       } finally {
-         balanceChangeLock.unlock();
+         //balanceChangeLock.unlock();
       }
-
-
    }
-   
    /**
       Gets the current balance of the bank account.
       @return the current balance
